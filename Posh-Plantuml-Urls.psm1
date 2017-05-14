@@ -80,3 +80,5 @@ Function ConvertTo-EncodedPlantUml {
     Encode64 $compressedText
 }
 
+Export-ModuleMember -Function ConvertTo-EncodedPlantUml
+
