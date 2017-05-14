@@ -1,6 +1,6 @@
 # Remove/reload, to ensure that there isn't an existing module of the same name loaded.
 Remove-Module Posh-Plantuml-Urls -Force
-Import-Module $PSScriptRoot\Posh-Plantuml-Urls.psm1 -Force
+Import-Module $PSScriptRoot\..\Posh-Plantuml-Urls.psm1 -Force
 
 InModuleScope posh-plantuml-urls {
     Describe 'ConvertTo-EncodedPlantUml' {
