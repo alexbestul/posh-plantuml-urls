@@ -56,7 +56,9 @@ function Deflate($text) {
     return $destStream.ToArray()
 }
 
-$text = "Bob -> alice: hello"
+function ConvertTo-EncodedPlantUml($plantUmlText) {
+    $compressedText = Deflate $plantUmlText
+    return Encode64 $compressedText
+}
 
-$compressedText = Deflate $text
-Encode64 $compressedText
+ConvertTo-EncodedPlantUml "Bob -> alice: hello"
