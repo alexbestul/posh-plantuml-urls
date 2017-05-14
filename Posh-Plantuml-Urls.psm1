@@ -5,8 +5,8 @@ function Encode6Bit($b) {
     $b -= 26
     if ($b -lt 26) { return [char](97 + $b) }
     $b -= 26
-    if (b -eq 0) { return '-' }
-    if (b -eq 1) { return '_' }
+    if ($b -eq 0) { return '-' }
+    if ($b -eq 1) { return '_' }
     return '?'
 }
 
