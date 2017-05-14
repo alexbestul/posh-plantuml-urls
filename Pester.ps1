@@ -52,5 +52,29 @@ InModuleScope posh-plantuml-urls {
         It 'Encodes the sample text from unnamed argument input' {
             ConvertTo-EncodedPlantUml $rawSampleText | Should Be $encodedSampleText
         }
+
+        It 'Returns empty string for null input from the pipeline' {
+            $null | ConvertTo-EncodedPlantUml | Should Be ''
+        }
+
+        It 'Returns empty string for null input from unnamed argument' {
+            ConvertTo-EncodedPlantUml $null | Should Be ''
+        }
+
+        It 'Returns empty string for null input from named argument' {
+            ConvertTo-EncodedPlantUml -plantUml $null | Should Be ''
+        }
+
+        It 'Returns empty string for empty input from the pipeline' {
+            '' | ConvertTo-EncodedPlantUml | Should Be ''
+        }
+
+        It 'Returns empty string for null empty from unnamed argument' {
+            ConvertTo-EncodedPlantUml '' | Should Be ''
+        }
+
+        It 'Returns empty string for empty input from named argument' {
+            ConvertTo-EncodedPlantUml -plantUml '' | Should Be ''
+        }
     }
 }

@@ -70,8 +70,7 @@ Get-Content example.puml | ConvertTo-EncodedPlantUml
 #>
 Function ConvertTo-EncodedPlantUml {
     Param(
-        [Parameter(Mandatory=$True,ValueFromPipeline=$True,ValueFromPipelinebyPropertyName=$True)]
-        [ValidateNotNull()]
+        [Parameter(ValueFromPipeline=$True,ValueFromPipelinebyPropertyName=$True)]
         [String]
         $plantUml
     )
