@@ -56,9 +56,27 @@ function Deflate($text) {
     return $destStream.ToArray()
 }
 
-function ConvertTo-EncodedPlantUml($plantUmlText) {
-    $compressedText = Deflate $plantUmlText
-    return Encode64 $compressedText
+<#
+.SYNOPSIS
+Encodes text into PlantUml's base64-like URL format.
+.PARAMETER plantUml
+The text to be encoded.
+.EXAMPLE
+ConvertTo-EncodedPlantUml "Alice-->Bob:Hello"
+.EXAMPLE
+"Alice-->Bob:Hello" | ConvertTo-EncodedPlantUml
+.EXAMPLE
+Get-Content example.puml | ConvertTo-EncodedPlantUml
+#>
+Function ConvertTo-EncodedPlantUml {
+    Param(
+        [Parameter(Mandatory=$True,ValueFromPipeline=$True,ValueFromPipelinebyPropertyName=$True)]
+        [ValidateNotNull()]
+        [String]
+        $plantUml
+    )
+    
+    $compressedText = Deflate $plantUml
+    Encode64 $compressedText
 }
 
-ConvertTo-EncodedPlantUml "Bob -> alice: hello"
